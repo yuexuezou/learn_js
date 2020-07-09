@@ -1,38 +1,53 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+
+        btn_node: {
+            default:null,
+            type: cc.Node
+        },
+
+        lbl_num: {
+            default:null,
+            type: cc.Node
+        },
+
+        img_1: {
+            default:null,
+            type: cc.Node
+        },
+
     },
 
-    // LIFE-CYCLE CALLBACKS:
+    onLoad () {
+        cc.log("11111111111111111111111111111111")
 
-    // onLoad () {},
+        this.btn_node.on('touchend', ()=>{
+            cc.log("点击")
+            let path = 'kitty/res/ui/a102'
+            cc.loader.loadRes(path, cc.SpriteFrame, (err, asset)=>{
+                if(err){
+                    cc.log(err)
+                }else{
+                    this.img_1.getComponent(cc.Sprite).spriteFrame = asset
+                }
+            })
+        }, this)
+
+        // this.lbl_num.getComponent(cc.Label).string = 0
+    },
 
     start () {
-        Text=""
+        cc.log("2222222222222222222222222222222222222")
+        // this.lbl_num.getComponent(cc.Label).string = 0
     },
 
-    // update (dt) {},
+    click_func(){
+        cc.log("3333333333333333333333333333333333333")
+
+        cc.log("点ssss击")
+    },
+
 });
