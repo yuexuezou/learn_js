@@ -9,21 +9,6 @@ cc.Class({
     extends: cc.Component,
 //定义属性
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
         btn_start:{
             default: null,//赋值
             type: cc.Node//类型，Node必须大些，否则会报错，这是一个组件
@@ -37,6 +22,10 @@ cc.Class({
             type: cc.Node//类型，Node必须大些，否则会报错，这是一个组件
         },
         btn_right:{
+            default: null,//赋值
+            type: cc.Node//类型，Node必须大些，否则会报错，这是一个组件
+        },
+        lab_page:{
             default: null,//赋值
             type: cc.Node//类型，Node必须大些，否则会报错，这是一个组件
         }
@@ -92,6 +81,7 @@ cc.Class({
             }
         }
         cc.loader.loadRes(path, cc.SpriteFrame, change_image)
+        this.lab_page.getComponent(cc.Sprite).SpriteFrame=this.image_rule
     },
     btnLeft_loadImage(){
         cc.log("++++++++++++++++++++++++++++")
@@ -109,6 +99,7 @@ cc.Class({
             }
         }
         cc.loader.loadRes(path, cc.SpriteFrame, change_image)
+        this.lab_page.getComponent(cc.Sprite).SpriteFrame = this.image_rule1
     },
     // update (dt) {},
 });
