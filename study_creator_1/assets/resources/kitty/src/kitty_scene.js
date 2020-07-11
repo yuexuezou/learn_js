@@ -22,11 +22,9 @@ cc.Class({
     },
 
     onLoad () {
-        cc.log("11111111111111111111111111111111")
-
-        this.btn_node.on('touchend', ()=>{
+        this.btn_node.on("touchend", ()=>{
             cc.log("点击")
-            let path = 'kitty/res/ui/a102'
+            let path = 'kitty/res/ui/bg_rule_1'
             cc.loader.loadRes(path, cc.SpriteFrame, (err, asset)=>{
                 if(err){
                     cc.log(err)
