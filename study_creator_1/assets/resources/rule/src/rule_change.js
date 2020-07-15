@@ -33,16 +33,15 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 //加载时就要执行的操作
     onLoad () {
-        this.image_rule = 0
-        this.image_rule1 = 7
+        this.image_rule = 1
         //写法：this.对应的UI控件（比如说：按钮，列表，复选框等等 ；需要去调用Node组件，所以必须“.node” 去监听“on” 括号中需要的参数：监听的操作是什么，监听到这个操作做出来什么反应，this）
         //5.调用方法：方法名（）意思是我要去执行这个方法    ；如果只是调用 ，让他去执行，那么就是： 方法名
         // this.btn_start.on(cc.Node.EventType.TOUCH_START, this.touch_start, this)
         // this.btn_start.on(cc.Node.EventType.TOUCH_MOVE, this.touch_move, this)
         // this.btn_start.on(cc.Node.EventType.TOUCH_END, this.touch_end, this)
         // this.btn_left.on(cc.Node.EventType.TOUCH_END, this.touch_end, this)
-        this.btn_right.on(cc.Node.EventType.TOUCH_END, this.touch_end, this)
-        this.btn_left.on(cc.Node.EventType.TOUCH_END, this.touch_end, this)
+        this.btn_right.on(cc.Node.EventType.TOUCH_END, this.btnRight_loadImage, this)
+        this.btn_left.on(cc.Node.EventType.TOUCH_END, this.btnLeft_loadImage, this)
     },
 
     start () {
@@ -60,17 +59,32 @@ cc.Class({
     touch_move(){
         cc.log("++++++++++在移动22")
     },
-
-    touch_end(){
-        this.btnRight_loadImage()
-        this.btnLeft_loadImage()
+    btnLeft_loadImage(){
+        cc.log("++++++++++++++++++++++++++++")
+        if(this.image_rule > 1){
+            this.image_rule = this.image_rule - 1
+        }else{
+            cc.log("_______hshsxaaaaaaaaaaau")
+            this.image_rule = 7
+        }
+        let path = "rule/res/ui/bg_rule_"+this.image_rule
+        let change_image = (err, asset) => {
+            if(err){
+                cc.log(err)
+            }else{
+                this.image_1.getComponent(cc.Sprite).spriteFrame = asset
+            }
+        }
+        cc.loader.loadRes(path, cc.SpriteFrame, change_image) //加载图片资源的方法（）
+        this.lab_page.getComponent(cc.Label).string = this.image_rule
+        cc.log(this.lab_page.getComponent(cc.Label).string+"-----------------------")
     },
     btnRight_loadImage(){
         cc.log("++++++++++++++++++++++++++++")
         if(this.image_rule < 7){
             this.image_rule = this.image_rule + 1
         }else{
-            this.image_rule = 0
+            this.image_rule = 1
         }
         let path = "rule/res/ui/bg_rule_"+this.image_rule
         let change_image = (err, asset) => {
@@ -81,25 +95,8 @@ cc.Class({
             }
         }
         cc.loader.loadRes(path, cc.SpriteFrame, change_image)
-        this.lab_page.getComponent(cc.Sprite).SpriteFrame=this.image_rule
-    },
-    btnLeft_loadImage(){
-        cc.log("++++++++++++++++++++++++++++")
-        if(this.image_rule1 > 0){
-            this.image_rule1 = this.image_rule1 - 1
-        }else{
-            this.image_rule1 = 7
-        }
-        let path = "rule/res/ui/bg_rule_"+this.image_rule1
-        let change_image = (err, asset) => {
-            if(err){
-                cc.log(err)
-            }else{
-                this.image_1.getComponent(cc.Sprite).spriteFrame = asset
-            }
-        }
-        cc.loader.loadRes(path, cc.SpriteFrame, change_image)
-        this.lab_page.getComponent(cc.Sprite).SpriteFrame = this.image_rule1
+        this.lab_page.getComponent(cc.Label).string = this.image_rule
+        cc.log(this.lab_page.getComponent(cc.Label).string+"-----------------------")
     },
     // update (dt) {},
 });
