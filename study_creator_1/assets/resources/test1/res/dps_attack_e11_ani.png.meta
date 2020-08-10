@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "935ab7b0-4475-44e0-811a-5b9653b2014e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 230,
+  "platformSettings": {},
+  "subMetas": {
+    "dps_attack_e11_ani": {
+      "ver": "1.0.4",
+      "uuid": "f2d32cd4-a5cb-47b0-bbf6-001958c0b661",
+      "rawTextureUuid": "935ab7b0-4475-44e0-811a-5b9653b2014e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 3.5,
+      "offsetY": -18.5,
+      "trimX": 95,
+      "trimY": 98,
+      "width": 47,
+      "height": 71,
+      "rawWidth": 230,
+      "rawHeight": 230,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
