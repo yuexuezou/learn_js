@@ -28,13 +28,17 @@ export default class NewClass extends cc.Component {
 
     load_gold_res() {
         let list_sprite_frame = []
-        for (let index = 1; index <= 27; index++) {
-            if (index <= 9) {
-                list_sprite_frame[index - 1] = 'test1/res/dps_attack_e0' + index + '_ani'
-            } else {
-                list_sprite_frame[index - 1] = 'test1/res/dps_attack_e' + index + '_ani'
-            }
+        // for (let index = 1; index <= 27; index++) {
+        //     if (index <= 9) {
+        //         list_sprite_frame[index - 1] = 'test1/res/dps_attack_e0' + index + '_ani'
+        //     } else {
+        //         list_sprite_frame[index - 1] = 'test1/res/dps_attack_e' + index + '_ani'
+        //     }
+        // }
+        for (let index = 1; index <= 8; index++) {
+            list_sprite_frame[index - 1] = 'test1/res/123/' + index
         }
+
 
         cc.loader.loadResArray(list_sprite_frame, cc.SpriteFrame, (err, assets) => {
             if (err) {
